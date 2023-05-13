@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:instagram_clone/screen/splashscreen.dart';
+import 'package:instagram_clone/screen/main_screen.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(
@@ -46,7 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       home: Builder(builder: (context) {
-        return const SplashScreen();
+        return const MainScreen();
       },),
     );
   }
