@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:instagram_clone/controllers/main_controller.dart';
 import 'package:instagram_clone/screen/main_screen.dart';
 
 void main() {
-  SystemChrome.setSystemUIOverlayStyle(
-    const SystemUiOverlayStyle(
-      systemNavigationBarColor: Colors.white,
-      statusBarColor: Colors.transparent,
-      statusBarIconBrightness: Brightness.dark,
-    )
-  );
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+    systemNavigationBarColor: Colors.white,
+    statusBarColor: Colors.transparent,
+    statusBarIconBrightness: Brightness.dark,
+  ));
   runApp(const MyApp());
 }
 
@@ -40,14 +39,17 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  
-
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      home: Builder(builder: (context) {
-        return const MainScreen();
-      },),
+      home: Builder(
+        builder: (context) {
+          return const MainScreen();
+        },
+      ),
+      initialBinding: BindingsBuilder(() {
+        Get.lazyPut(() => MainController(), fenix: true);
+      }),
     );
   }
 }
